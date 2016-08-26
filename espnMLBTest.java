@@ -8,30 +8,30 @@ public class espnMLBTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		//Test to click the NFL menu on ESPN.com and then click the Stats menu option
+		//Test to navigate to the MLB stats page an print out HR leaders
+		
+		//Send browser type and url to setup the webdriver
 		espnWebSetup.setupDriver("chrome", "http://espn.com");
-		espnMenuBarActions.clickMLB();
 		
-		Thread.sleep(2000);
-		
+		//Call to click the MLB menu
+		espnMenuBarActions.clickMLB(); 
+
+		//Click the stats option once the menu is displayed
 		espnMenuBarActions.clickMLBStats();
 		
-		Thread.sleep(2000);
-		
+		//Click a link to go to the complete stats page
 		espnMLBStatsPage.clickCompleteLeadersHR();
 		
-		Thread.sleep(2000);
-		
+		//Click a dropdown to select the league (AL. NL or MLB)
 		espnMLBStatsPage.clickLeagueDropdown();
 		
-		Thread.sleep(2000);
-		
+		//Click MLB
 		espnMLBStatsPage.clickLeagueMLB();
-		
-		Thread.sleep(2000);
-		
+
+		//Method to read the player names and HR totals and print them to the console.
 		espnMLBStatsPage.listLeaders();
 		
+		//Close the browser
 		espnWebSetup.cleanup();
 
 	}

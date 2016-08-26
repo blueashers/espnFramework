@@ -1,12 +1,8 @@
 package espn.Framework.Objects;
-import org.openqa.selenium.WebDriver;
 
-import espn.Framework.Setup.espnWebSetup;
-
+//This class provides xpaths to elements on the ESPN menu bar
 public class espnMenuBarElements {
-
-	static WebDriver driver = espnWebSetup.getDriver();
-	
+	//Elements on the menu bar
 	static String nflMenu = "/html/body/div[6]/div[2]/header/nav[1]/ul/li[1]/a/span/span[1]";
 	static String nbaMenu = "/html/body/div[6]/div[2]/header/nav[1]/ul/li[2]/a/span/span[1]";
 	static String mlbMenu = "/html/body/div[6]/div[2]/header/nav[1]/ul/li[3]/a/span/span[1]";
@@ -22,5 +18,7 @@ public class espnMenuBarElements {
 	//MLB
 	static String mlbMenuHome = "/html/body/div[6]/div[2]/header/nav[1]/ul/li[3]/div/ul[1]/li[1]/a/span/span[1]";
 	static String mlbMenuStats = "/html/body/div[6]/div[2]/header/nav[1]/ul/li[3]/div/ul[1]/li[5]/a/span/span[1]";
+	
+	//others can be added later
 	
 }

@@ -1,13 +1,14 @@
 package espn.Framework.Setup;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class espnWebSetup {
 	//This class will instantiate the WebDriver based on input from the test(s).
+	
+	
 	static WebDriver driver;
 	static String driverPath = "C:\\Users\\hicksa\\Documents\\Selenium\\drivers\\";
 	
@@ -21,8 +22,14 @@ public class espnWebSetup {
 			 driver = new ChromeDriver();	 
 		 break;
 		 case "firefox":
+			 //This should work, but doesn't for some reason.
 			 System.setProperty("webdriver.gecko.driver", driverPath+"geckodriver.exe");
-			 driver = new FirefoxDriver();
+			 driver = new FirefoxDriver();			 
+	     break;
+		 case "ie":
+			 //This does not work yet either.
+			 System.setProperty("webdriver.edge.driver", driverPath+"MicrosoftWebDriver.exe");
+			 driver = new EdgeDriver();			 
 	     break;
 	     default: 
 	    	 System.out.println("Unrecognized browser. Defaulting to Chrome.");
@@ -30,11 +37,9 @@ public class espnWebSetup {
 	    	 driver = new ChromeDriver();
 		 }
 		 
-		//Implicit wait
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
 		//Open the requested page
 		driver.get(url);
+		//Maximize the window to bring the full ESPN menu to view
 		driver.manage().window().maximize();
 		 
 		 return driver;
